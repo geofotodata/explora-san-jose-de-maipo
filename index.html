@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#173f35" />
+    <meta
+      name="description"
+      content="Guía digital piloto para descubrir, planificar y visitar responsablemente la ZOIT San José de Maipo."
+    />
+    <title>Explora San José de Maipo</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header" id="inicio">
+      <div class="container header-inner">
+        <a class="brand" href="#inicio" aria-label="Explora San José de Maipo, inicio">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" role="img">
+              <path d="M5 36 18 12l7 12 5-8 13 20H5Z" />
+              <path d="m15 36 9-16 4 7 3-5 10 14H15Z" class="brand-mark-light" />
+            </svg>
+          </span>
+          <span><strong>Explora</strong><small>San José de Maipo</small></span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">
+          <span></span><span></span><span></span><span class="sr-only">Abrir menú</span>
+        </button>
+
+        <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+          <a href="#explorar">Explorar</a>
+          <a href="#mapa">Mapa</a>
+          <a href="#rutas">Rutas</a>
+          <a href="#planifica">Planifica</a>
+          <a href="#zoit">La ZOIT</a>
+        </nav>
+
+        <button class="install-button" id="install-button" type="button" hidden>Instalar guía</button>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <section class="hero">
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 1600 760" preserveAspectRatio="xMidYMax slice">
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#dceae5" />
+                <stop offset="1" stop-color="#f8f3e8" />
+              </linearGradient>
+              <linearGradient id="far" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#8fa89e" />
+                <stop offset="1" stop-color="#637d72" />
+              </linearGradient>
+              <linearGradient id="near" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#315d4e" />
+                <stop offset="1" stop-color="#173f35" />
+              </linearGradient>
+            </defs>
+            <rect width="1600" height="760" fill="url(#sky)" />
+            <circle cx="1260" cy="170" r="74" fill="#f4be65" opacity=".78" />
+            <path d="M0 520 260 238l110 104 170-220 188 246 148-126 258 292 188-216 278 244v198H0Z" fill="url(#far)" />
+            <path d="m260 238 110 104 170-220 55 72-55-22-66 79-50-18-54 109Z" fill="#f7f1e6" opacity=".92" />
+            <path d="m876 242 258 292 188-216 84 74-84-22-75 88-54-30-59 106Z" fill="#f7f1e6" opacity=".78" />
+            <path d="M0 650 240 426l153 118 180-167 177 135 221-205 239 206 188-132 202 176v203H0Z" fill="url(#near)" />
+            <path d="M0 686c248-86 427-34 631 4 244 45 419 18 589-37 146-47 250-44 380-3v110H0Z" fill="#102f29" opacity=".8" />
+          </svg>
+        </div>
+
+        <div class="container hero-content">
+          <div class="hero-copy">
+            <p class="eyebrow">Guía digital piloto de la ZOIT</p>
+            <h1>La cordillera se visita con información.</h1>
+            <p class="hero-lead">
+              Descubre los valles, prepara tu ruta y conoce las condiciones esenciales antes de recorrer
+              San José de Maipo.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#explorar">Explorar lugares</a>
+              <a class="button button-ghost" href="#mapa">Ver mapa</a>
+            </div>
+          </div>
+
+          <aside class="today-card" aria-labelledby="today-title">
+            <div class="today-heading">
+              <span class="pulse" aria-hidden="true"></span>
+              <p>Antes de salir</p>
+            </div>
+            <h2 id="today-title">Consulta las condiciones oficiales</h2>
+            <p>
+              Este prototipo aún no integra alertas en tiempo real. Verifica caminos, clima y accesos con
+              las instituciones responsables.
+            </p>
+            <a href="#alertas">Revisar información de seguridad <span aria-hidden="true">→</span></a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="quick-plan" aria-label="Accesos rápidos">
+        <div class="container quick-grid">
+          <a href="#explorar" data-quick-filter="naturaleza">
+            <span class="quick-icon" aria-hidden="true">⌁</span>
+            <span><strong>Naturaleza</strong><small>Paisajes y biodiversidad</small></span>
+          </a>
+          <a href="#rutas">
+            <span class="quick-icon" aria-hidden="true">↗</span>
+            <span><strong>Senderos y rutas</strong><small>Recorridos autoguiados</small></span>
+          </a>
+          <a href="#planifica">
+            <span class="quick-icon" aria-hidden="true">◷</span>
+            <span><strong>Planifica</strong><small>Tiempo, transporte y grupo</small></span>
+          </a>
+          <a href="#alertas">
+            <span class="quick-icon" aria-hidden="true">!</span>
+            <span><strong>Seguridad</strong><small>Riesgos y recomendaciones</small></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="section territories" aria-labelledby="territories-title">
+        <div class="container">
+          <div class="section-heading split-heading">
+            <div>
+              <p class="eyebrow">Cuatro territorios, una cordillera</p>
+              <h2 id="territories-title">Explora por valle</h2>
+            </div>
+            <p>Desde las localidades históricas del valle principal hasta los paisajes de alta montaña.</p>
+          </div>
+
+          <div class="territory-grid">
+            <article class="territory-card territory-maipo">
+              <span>01</span><div><p>Puerta de entrada</p><h3>Valle del Maipo</h3><a href="#explorar" data-territory="maipo">Ver lugares →</a></div>
+            </article>
+            <article class="territory-card territory-colorado">
+              <span>02</span><div><p>Tradición arriera</p><h3>Valle del Colorado</h3><a href="#explorar" data-territory="colorado">Ver lugares →</a></div>
+            </article>
+            <article class="territory-card territory-yeso">
+              <span>03</span><div><p>Agua y cordillera</p><h3>Valle del Yeso</h3><a href="#explorar" data-territory="yeso">Ver lugares →</a></div>
+            </article>
+            <article class="territory-card territory-volcan">
+              <span>04</span><div><p>Geología altoandina</p><h3>Valle del Volcán</h3><a href="#explorar" data-territory="volcan">Ver lugares →</a></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section explore-section" id="explorar" aria-labelledby="explore-title">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Encuentra tu próxima parada</p>
+            <h2 id="explore-title">Lugares para explorar</h2>
+            <p>Una selección inicial para probar la experiencia. La información operativa debe validarse antes de viajar.</p>
+          </div>
+
+          <div class="explore-tools">
+            <div class="filters" role="group" aria-label="Filtrar lugares por categoría">
+              <button class="filter active" type="button" data-filter="todos">Todos</button>
+              <button class="filter" type="button" data-filter="naturaleza">Naturaleza</button>
+              <button class="filter" type="button" data-filter="patrimonio">Patrimonio</button>
+              <button class="filter" type="button" data-filter="aventura">Aventura</button>
+              <button class="filter" type="button" data-filter="bienestar">Bienestar</button>
+            </div>
+            <label class="search-box">
+              <span class="sr-only">Buscar lugares</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg>
+              <input id="place-search" type="search" placeholder="Buscar un lugar" />
+            </label>
+          </div>
+
+          <div class="place-grid" id="place-grid" aria-live="polite"></div>
+          <p class="empty-state" id="empty-state" hidden>No encontramos lugares con esos filtros.</p>
+        </div>
+      </section>
+
+      <section class="section map-section" id="mapa" aria-labelledby="map-title">
+        <div class="container map-layout">
+          <div class="map-copy">
+            <p class="eyebrow eyebrow-light">Orientación territorial</p>
+            <h2 id="map-title">Un destino de valles y montaña</h2>
+            <p>
+              Explora esta representación territorial del destino. En una siguiente etapa se incorporará
+              cartografía georreferenciada, rutas y servicios verificados.
+            </p>
+            <div class="map-legend">
+              <span><i class="legend-dot nature"></i>Naturaleza</span>
+              <span><i class="legend-dot culture"></i>Patrimonio</span>
+              <span><i class="legend-dot wellness"></i>Bienestar</span>
+            </div>
+            <p class="map-note">Mapa esquemático · No utilizar para navegación</p>
+          </div>
+
+          <div class="destination-map" role="img" aria-label="Mapa esquemático de los cuatro valles de San José de Maipo">
+            <svg class="map-relief" viewBox="0 0 760 600" aria-hidden="true">
+              <defs>
+                <pattern id="contours" width="130" height="90" patternUnits="userSpaceOnUse">
+                  <path d="M-10 45Q35 5 78 42t70 2" fill="none" stroke="#fff" stroke-opacity=".09" stroke-width="1.5" />
+                  <path d="M-20 68Q33 30 86 66t70-4" fill="none" stroke="#fff" stroke-opacity=".07" />
+                </pattern>
+              </defs>
+              <rect width="760" height="600" fill="url(#contours)" />
+              <path d="M115 535C170 470 183 423 228 371c49-58 70-106 91-178" fill="none" stroke="#75b7c1" stroke-width="8" stroke-linecap="round" opacity=".9" />
+              <path d="M228 371c94-45 126-107 195-181" fill="none" stroke="#75b7c1" stroke-width="5" stroke-linecap="round" opacity=".75" />
+              <path d="M319 193c-30-39-57-67-87-97" fill="none" stroke="#75b7c1" stroke-width="4" stroke-linecap="round" opacity=".65" />
+              <path d="M319 193c82 1 143-19 222-67" fill="none" stroke="#75b7c1" stroke-width="4" stroke-linecap="round" opacity=".65" />
+              <path d="M228 371c89 34 162 66 239 117" fill="none" stroke="#75b7c1" stroke-width="4" stroke-linecap="round" opacity=".65" />
+              <text x="112" y="568">Acceso desde Santiago</text>
+              <text x="114" y="395">VALLE DEL MAIPO</text>
+              <text x="120" y="88">VALLE DEL COLORADO</text>
+              <text x="485" y="108">VALLE DEL YESO</text>
+              <text x="478" y="510">VALLE DEL VOLCÁN</text>
+            </svg>
+            <div id="map-markers"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section routes-section" id="rutas" aria-labelledby="routes-title">
+        <div class="container">
+          <div class="section-heading split-heading">
+            <div><p class="eyebrow">Historias en movimiento</p><h2 id="routes-title">Rutas autoguiadas</h2></div>
+            <p>Recorridos piloto para conectar paisaje, patrimonio y comunidad.</p>
+          </div>
+          <div class="route-list" id="route-list"></div>
+        </div>
+      </section>
+
+      <section class="section planning-section" id="planifica" aria-labelledby="plan-title">
+        <div class="container planning-layout">
+          <div class="planning-copy">
+            <p class="eyebrow eyebrow-light">Una visita a tu medida</p>
+            <h2 id="plan-title">Planifica antes de subir</h2>
+            <p>Cuéntanos cómo será tu visita y recibe una orientación inicial basada en reglas simples.</p>
+            <ul>
+              <li>Revisa el estado de caminos y el pronóstico.</li>
+              <li>Lleva agua, abrigo y protección solar.</li>
+              <li>No dependas de la cobertura telefónica.</li>
+            </ul>
+          </div>
+          <form class="planner" id="planner">
+            <label>¿Cuánto tiempo tienes?
+              <select name="duration"><option value="medio-dia">Medio día</option><option value="dia">Día completo</option><option value="dos-dias">Dos días o más</option></select>
+            </label>
+            <label>¿Con quién viajas?
+              <select name="group"><option value="familia">Familia</option><option value="pareja">Pareja</option><option value="solo">Solo/a</option><option value="grupo">Grupo</option></select>
+            </label>
+            <label>¿Qué te interesa?
+              <select name="interest"><option value="naturaleza">Naturaleza</option><option value="patrimonio">Patrimonio</option><option value="aventura">Aventura</option><option value="bienestar">Bienestar</option></select>
+            </label>
+            <button class="button button-accent" type="submit">Crear recomendación</button>
+            <div class="planner-result" id="planner-result" role="status" hidden></div>
+          </form>
+        </div>
+      </section>
+
+      <section class="section safety-section" id="alertas" aria-labelledby="safety-title">
+        <div class="container safety-layout">
+          <div class="safety-icon" aria-hidden="true">!</div>
+          <div>
+            <p class="eyebrow">Información crítica primero</p>
+            <h2 id="safety-title">Visita la montaña con responsabilidad</h2>
+            <p>
+              Los accesos pueden cambiar por nieve, crecidas, remociones en masa, incendios o trabajos viales.
+              Este prototipo no publica alertas operativas en tiempo real.
+            </p>
+          </div>
+          <div class="safety-actions">
+            <a href="https://www.senapred.cl/" target="_blank" rel="noopener">SENAPRED ↗</a>
+            <a href="https://www.meteochile.gob.cl/" target="_blank" rel="noopener">Meteorología ↗</a>
+            <a href="https://www.conaf.cl/" target="_blank" rel="noopener">CONAF ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section zoit-section" id="zoit" aria-labelledby="zoit-title">
+        <div class="container zoit-layout">
+          <div class="zoit-emblem" aria-hidden="true">
+            <svg viewBox="0 0 320 320"><circle cx="160" cy="160" r="154"/><path d="m39 218 76-125 47 70 29-44 90 99H39Z"/><path d="M38 220h244"/><path d="M67 241c54-17 119-17 186 0"/></svg>
+          </div>
+          <div>
+            <p class="eyebrow">Un destino que se organiza</p>
+            <h2 id="zoit-title">¿Qué significa ser ZOIT?</h2>
+            <p>
+              Una Zona de Interés Turístico es un territorio con condiciones especiales para la actividad turística,
+              que requiere planificación coordinada entre instituciones, comunidad y actores privados.
+            </p>
+            <p>
+              Esta guía busca transformar esa planificación en información útil para quien visita y en una vitrina
+              responsable para el territorio.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a class="brand brand-footer" href="#inicio"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M5 36 18 12l7 12 5-8 13 20H5Z"/><path d="m15 36 9-16 4 7 3-5 10 14H15Z" class="brand-mark-light"/></svg></span><span><strong>Explora</strong><small>San José de Maipo</small></span></a>
+          <p>Prototipo de guía pública para la ZOIT San José de Maipo.</p>
+        </div>
+        <div><h2>Explora</h2><a href="#explorar">Lugares</a><a href="#rutas">Rutas</a><a href="#mapa">Mapa</a></div>
+        <div><h2>Prepara tu visita</h2><a href="#planifica">Planificador</a><a href="#alertas">Seguridad</a><a href="#zoit">La ZOIT</a></div>
+        <div class="connection-status"><span id="connection-dot"></span><p id="connection-text">Comprobando conexión…</p><small>Contenido piloto · julio de 2026</small></div>
+      </div>
+      <div class="container footer-bottom"><p>Información referencial sujeta a validación institucional.</p><p>Diseñado para aprender, planificar y cuidar.</p></div>
+    </footer>
+
+    <dialog class="place-dialog" id="place-dialog" aria-labelledby="dialog-title">
+      <button class="dialog-close" type="button" aria-label="Cerrar ficha">×</button>
+      <div id="dialog-content"></div>
+    </dialog>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

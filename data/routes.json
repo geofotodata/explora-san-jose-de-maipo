@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ruta-patrimonial",
+    "name": "Ruta patrimonial de San José de Maipo",
+    "summary": "Plaza, arquitectura, memoria local y huellas del ferrocarril.",
+    "duration": "2 horas",
+    "distance": "3,5 km",
+    "difficulty": "Baja"
+  },
+  {
+    "id": "ruta-del-agua",
+    "name": "Ruta del agua y paisaje altoandino",
+    "summary": "Un relato territorial sobre ríos, glaciares, humedales y abastecimiento.",
+    "duration": "Día completo",
+    "distance": "Variable",
+    "difficulty": "Media"
+  },
+  {
+    "id": "ruta-volcan-morado",
+    "name": "Del Volcán a Baños Morales",
+    "summary": "Patrimonio minero, geología y puerta de entrada a la alta montaña.",
+    "duration": "Medio día",
+    "distance": "22 km",
+    "difficulty": "Media"
+  }
+]
