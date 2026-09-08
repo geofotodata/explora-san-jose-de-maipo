@@ -1,0 +1,12 @@
+{
+  "name": "Explora San José de Maipo",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": {
+      "label": "Explora San José de Maipo",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "postCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}"
+}
