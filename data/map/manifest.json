@@ -1,0 +1,157 @@
+{
+  "sources": {
+    "comunas_bcn.zip": {
+      "url": "https://www.bcn.cl/obtienearchivo?id=repositorio/10221/10396/5/comunas_final.zip",
+      "sha256": "cca97e9c0d8ec28dbceb17242489a80a9ffc817f7bb926f9f5cde5b61eb130a6",
+      "retrieved_at": "2026-09-08T02:16:38.905654+00:00"
+    },
+    "toponimos_bcn.zip": {
+      "url": "https://www.bcn.cl/obtienearchivo?id=repositorio/10221/10400/2/Toponimos.zip",
+      "sha256": "22fe41adf0a79219cb2047f34582b2f1675dfc4962ea50434c01ddc042f8e327",
+      "retrieved_at": "2026-09-08T02:16:39.924379+00:00"
+    },
+    "areas_protegidas_mma.zip": {
+      "url": "https://biodiversidadrm.mma.gob.cl/wp-content/uploads/2024/01/AP_descarga_kmz.zip",
+      "sha256": "db1166fdf41f2b063846a7c8f5a75ef29987179d1a6cbfa45430b7919bfc4e38",
+      "retrieved_at": "2026-09-08T02:16:40.213732+00:00"
+    },
+    "localidades_osm.json": {
+      "url": "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+      "sha256": "461b6e1f19e4f45455fdc059b0502ad85cb9491fc472b8880b1da5e91134d504",
+      "retrieved_at": "2026-09-08T02:26:40.423076+00:00"
+    }
+  },
+  "layers": {
+    "boundary": {
+      "features": 1,
+      "bbox": [
+        -70.500451,
+        -34.2906694,
+        -69.7696136,
+        -33.0514435
+      ],
+      "bytes": 89352
+    },
+    "localities": {
+      "features": 25,
+      "bbox": [
+        -70.4847618,
+        -33.8513148,
+        -69.984267,
+        -33.5043385
+      ],
+      "bytes": 12918
+    },
+    "protected": {
+      "features": 7,
+      "bbox": [
+        -70.4951405,
+        -34.2910233,
+        -69.7696136,
+        -33.0514335
+      ],
+      "bytes": 242575
+    }
+  },
+  "rejected": [],
+  "boundary_input": {
+    "national_features": 346,
+    "selected": 1,
+    "source_crs": "EPSG:3857"
+  },
+  "outside_boundary": [],
+  "locality_catalog_count": 25,
+  "protected_input": {
+    "features": 17,
+    "categories": {
+      "Santuario de la Naturaleza": 13,
+      "Parque Nacional": 2,
+      "Monumento Natural (ex Parque Nacional)": 1,
+      "Reserva Nacional": 1
+    },
+    "crs": "EPSG:4326"
+  },
+  "protected_excluded": [
+    {
+      "name": "Cerro El Roble",
+      "overlap_ha": 0.0
+    },
+    {
+      "name": "Predio Los Nogales",
+      "overlap_ha": 0.0
+    },
+    {
+      "name": "Las Torcazas de Pirque",
+      "overlap_ha": 0.0
+    },
+    {
+      "name": "Horcón de Piedra",
+      "overlap_ha": 0.0
+    },
+    {
+      "name": "El Ajial",
+      "overlap_ha": 0.0
+    },
+    {
+      "name": "Quebrada de la Plata",
+      "overlap_ha": 0.0
+    },
+    {
+      "name": "Altos de Cantillana, Horcón de Piedra y Roblería del Cobre de Lonc",
+      "overlap_ha": 0.0
+    },
+    {
+      "name": "San Juan de Piche",
+      "overlap_ha": 0.0
+    },
+    {
+      "name": "Laguna de Batuco",
+      "overlap_ha": 0.0
+    },
+    {
+      "name": "Robleria del Cobre de Loncha",
+      "overlap_ha": 0.0
+    }
+  ],
+  "protected_selected": [
+    {
+      "name": "Fundo Yerba Loca",
+      "category": "Santuario de la Naturaleza",
+      "overlap_ha": 298.8
+    },
+    {
+      "name": "Cascada de Las Ánimas",
+      "category": "Santuario de la Naturaleza",
+      "overlap_ha": 3118.6
+    },
+    {
+      "name": "Fundos San Francisco de Lagunilla y Quillayal",
+      "category": "Santuario de la Naturaleza",
+      "overlap_ha": 14355.3
+    },
+    {
+      "name": "Cruz de Piedra",
+      "category": "Santuario de la Naturaleza",
+      "overlap_ha": 92850.6
+    },
+    {
+      "name": "El Morado",
+      "category": "Monumento Natural (ex Parque Nacional)",
+      "overlap_ha": 3018.7
+    },
+    {
+      "name": "Rio Clarillo",
+      "category": "Parque Nacional",
+      "overlap_ha": 69.7
+    },
+    {
+      "name": "Glaciares de Santiago",
+      "category": "Parque Nacional",
+      "overlap_ha": 74502.0
+    }
+  ],
+  "display_crs": "EPSG:3857",
+  "analysis_crs": "EPSG:32719",
+  "simplification_m": 12,
+  "osm_snapshot": "2026-09-08T02:25:27Z"
+}

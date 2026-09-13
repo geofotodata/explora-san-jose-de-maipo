@@ -1,0 +1,52 @@
+/* Visitor guide preview, inspired by the NPS editorial hierarchy. */
+:root { --paper: #fff; --cream: #f3f1ea; --radius-lg: 3px; --radius-md: 3px; --radius-sm: 2px; --container: min(1180px, calc(100% - 48px)); }
+body { font-family: Arial, Helvetica, sans-serif; }
+h1,h2,h3,.brand strong { font-family: Arial, Helvetica, sans-serif; }
+.site-header { position: relative; background: #171d1a; color: white; border-bottom: 1px solid #41473c; }
+.header-inner { min-height: 82px; }
+.brand small { color: #cdd1c6; }
+.brand-mark { background: #6e7046; border-radius: 2px 2px 18px 18px; }
+.main-nav a { color: white; }
+.install-button { color: white; border-color: #999; border-radius: 2px; }
+.hero,.hero-content { min-height: 520px; }
+.hero { background: #294639; }
+.hero-art { filter: saturate(.65); }
+.hero-art::after { content:''; position:absolute; inset:0; background:linear-gradient(90deg,rgba(8,25,22,.8),rgba(8,25,22,.15)); }
+.hero-content { padding-top: 38px; padding-bottom: 45px; gap: 55px; align-items: center; }
+.hero h1 { color: white; font-size: clamp(3.3rem,7vw,6rem); line-height: .99; letter-spacing: -.04em; font-weight: 800; }
+.hero .eyebrow { color: #ddd8b8; letter-spacing: .2em; }
+.hero-lead { color: #fff; max-width: 570px; }
+.button { border-radius: 2px; }
+.button-primary { background: #e5c779; color: #202820; }
+.button-ghost { color: white; border-color: #b8c6b8; background: #132c2780; }
+.today-card { align-self:center; margin:0; background:#14221fe8; border-radius:2px; box-shadow:none; border-top:4px solid #d7bd76; }
+.today-card h2 { font-size: 1.85rem; line-height:1.15; }
+.visit-notice { background:#eae2c9; border-bottom:1px solid #d9cda8; padding:18px 0; font-size:.8rem; font-weight:700; }
+.visit-notice .container { display:flex; gap:22px; align-items:center; }
+.visit-notice span { font-weight:400; }
+.visit-notice a { margin-left:auto; text-decoration:underline; }
+.conditions-section { padding:55px 0; background:white; }
+.conditions-heading { display:flex; justify-content:space-between; align-items:center; gap:24px; }
+.conditions-heading h2 { font-size:clamp(1.7rem,3vw,2.5rem); margin-bottom:12px; letter-spacing:-.035em; }
+.verification-label { color:#6b623e; background:#f5f1e5; padding:9px 13px; font-size:.75rem; white-space:nowrap; }
+.conditions-section > .container > p { color:#586059; max-width:860px; font-size:.92rem; }
+.condition-filters { display:flex; gap:8px; flex-wrap:wrap; margin:25px 0; }
+.condition-filters button { padding:10px 15px; background:#fff; color:#343d35; border:1px solid #cccfc8; cursor:pointer; font-size:.85rem; }
+.condition-filters button[aria-pressed=true] { background:#344b36; border-color:#344b36; color:#fff; }
+.conditions-list { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.condition-card { padding:23px; border:1px solid #dadcd5; border-top:3px solid #b6a06b; display:flex; flex-direction:column; align-items:flex-start; }
+.condition-card .eyebrow { font-size:.63rem; letter-spacing:.12em; }
+.condition-card h3 { font-size:1.25rem; line-height:1.2; min-height:3em; margin-bottom:12px; }
+.condition-status { color:#755817; background:#f4ecd6; padding:5px 9px; font-weight:700; font-size:.75rem; }
+.condition-card > p:not(.eyebrow) { color:#596158; font-size:.87rem; line-height:1.6; }
+.condition-card small { color:#686e65; font-size:.69rem; margin-top:auto; }
+.condition-card a { font-size:.8rem; font-weight:700; text-decoration:underline; margin-top:16px; }
+.source-note { font-size:.75rem !important; margin-top:20px; }
+.conditions-empty { grid-column:1/-1; padding:24px; background:#f3f1ea; }
+.quick-plan { margin:0; background:#f3f1ea; padding:20px 0; }
+.quick-grid { box-shadow:none; }
+.section-heading h2 { font-size:clamp(2rem,4vw,3rem); }
+.section { scroll-margin-top:20px; }
+@media(max-width:1000px) { .conditions-list { grid-template-columns:repeat(2,1fr); } .conditions-heading { align-items:flex-start; flex-direction:column; gap:0; } }
+@media(max-width:760px) { .hero-content { display:block; padding:48px 0; } .today-card { margin-top:32px; } .main-nav { background:#171d1a; } .menu-toggle span { background:white; } .visit-notice .container { flex-wrap:wrap; gap:8px; } .visit-notice a { margin-left:0; } .hero-actions { flex-wrap:wrap; } }
+@media(max-width:480px) { .conditions-list { grid-template-columns:1fr; } .condition-card h3 { min-height:0; } }

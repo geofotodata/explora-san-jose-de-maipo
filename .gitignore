@@ -8,3 +8,7 @@ Thumbs.db
 node_modules/
 dist/
 coverage/
+.venv-geo/
+__pycache__/
+*.pyc
+data/raw/

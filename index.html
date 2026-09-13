@@ -18,6 +18,9 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="visitor-guide.css" />
+    <link rel="stylesheet" href="assets/vendor/maplibre-gl.css" />
+    <link rel="stylesheet" href="territory-map.css" />
   </head>
   <body>
     <a class="skip-link" href="#contenido">Saltar al contenido</a>
@@ -81,14 +84,14 @@
         <div class="container hero-content">
           <div class="hero-copy">
             <p class="eyebrow">Guía digital piloto de la ZOIT</p>
-            <h1>La cordillera se visita con información.</h1>
+            <h1>San José<br>de Maipo</h1>
             <p class="hero-lead">
               Descubre los valles, prepara tu ruta y conoce las condiciones esenciales antes de recorrer
               San José de Maipo.
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="#explorar">Explorar lugares</a>
-              <a class="button button-ghost" href="#mapa">Ver mapa</a>
+              <a class="button button-ghost" href="#condiciones">Condiciones de visita →</a>
             </div>
           </div>
 
@@ -97,16 +100,32 @@
               <span class="pulse" aria-hidden="true"></span>
               <p>Antes de salir</p>
             </div>
-            <h2 id="today-title">Consulta las condiciones oficiales</h2>
+            <h2 id="today-title">Tu aventura empieza antes de salir.</h2>
             <p>
               Este prototipo aún no integra alertas en tiempo real. Verifica caminos, clima y accesos con
               las instituciones responsables.
             </p>
-            <a href="#alertas">Revisar información de seguridad <span aria-hidden="true">→</span></a>
+            <a href="#condiciones">Consultar sectores y accesos <span aria-hidden="true">→</span></a>
           </aside>
         </div>
       </section>
 
+      <div class="visit-notice"><div class="container">△ &nbsp; CONDICIONES DE VISITA <span>Consulta el acceso a tu destino antes de viajar.</span><a href="#condiciones">Revisar sectores ↓</a></div></div>
+      <section class="section conditions-section" id="condiciones" aria-labelledby="conditions-title">
+        <div class="container">
+          <div class="conditions-heading"><div><p class="eyebrow">Planifica con información</p><h2 id="conditions-title">¿Qué sectores puedes visitar?</h2></div><span class="verification-label">◷ Sin confirmación operativa en vivo</span></div>
+          <p>Consulta cada sector y su fuente responsable. “Por confirmar” significa que aún no contamos con un reporte vigente de apertura o cierre.</p>
+          <div class="condition-filters" aria-label="Filtrar condiciones de acceso">
+            <button type="button" data-condition="all" aria-pressed="true">Todos los sectores</button>
+            <button type="button" data-condition="open" aria-pressed="false">● Habilitados</button>
+            <button type="button" data-condition="restricted" aria-pressed="false">◐ Con restricciones</button>
+            <button type="button" data-condition="closed" aria-pressed="false">⊘ Cerrados</button>
+            <button type="button" data-condition="unknown" aria-pressed="false">○ Por confirmar</button>
+          </div>
+          <div id="conditions-list" class="conditions-list" aria-live="polite"></div>
+          <p class="source-note">Fuentes de consulta: CONAF · Municipalidad de San José de Maipo · Delegación Presidencial de Cordillera. Esta prueba no recibe todavía un flujo de alertas en tiempo real.</p>
+        </div>
+      </section>
       <section class="quick-plan" aria-label="Accesos rápidos">
         <div class="container quick-grid">
           <a href="#explorar" data-quick-filter="naturaleza">
@@ -183,45 +202,39 @@
         </div>
       </section>
 
-      <section class="section map-section" id="mapa" aria-labelledby="map-title">
-        <div class="container map-layout">
-          <div class="map-copy">
-            <p class="eyebrow eyebrow-light">Orientación territorial</p>
-            <h2 id="map-title">Un destino de valles y montaña</h2>
-            <p>
-              Explora esta representación territorial del destino. En una siguiente etapa se incorporará
-              cartografía georreferenciada, rutas y servicios verificados.
-            </p>
-            <div class="map-legend">
-              <span><i class="legend-dot nature"></i>Naturaleza</span>
-              <span><i class="legend-dot culture"></i>Patrimonio</span>
-              <span><i class="legend-dot wellness"></i>Bienestar</span>
+      <section class="section territory-section" id="mapa" aria-labelledby="map-title">
+        <div class="container">
+          <div class="territory-heading"><div><p class="eyebrow">Atlas del Cajón del Maipo</p><h2 id="map-title">Un territorio, muchas localidades.</h2></div><a href="#map-sources">Fuentes y coberturas ↗</a></div>
+          <p class="territory-intro">Encuentra cada localidad, recorre el límite de San José de Maipo y descubre sus áreas protegidas. Selecciona un nombre para acercarte.</p>
+          <div class="territory-toolbar">
+            <label>Mapa base <select id="map-basemap"><option value="soft">Claro · OpenStreetMap</option><option value="osm">Calles · OpenStreetMap</option><option value="topo">Relieve · OpenTopoMap</option><option value="none">Solo coberturas</option></select></label>
+            <button type="button" id="map-fit-places">Ver localidades</button><button type="button" id="map-fit-boundary">Ver comuna completa</button>
+          </div>
+          <div class="territory-workspace" id="territory-workspace">
+            <aside class="locality-sidebar" aria-label="Buscador y listado de localidades">
+              <label for="locality-search">Busca una localidad</label><input id="locality-search" type="search" placeholder="Ej. El Canelo, Baños Morales…" autocomplete="off">
+              <p id="locality-count" class="locality-count" role="status">Cargando localidades…</p>
+              <div id="locality-list" class="locality-list"></div>
+              <div class="territory-layers"><h3>Coberturas</h3>
+                <label><input type="checkbox" id="layer-localities" checked><span class="map-key key-locality"></span>Localidades y sectores</label>
+                <label><input type="checkbox" id="layer-boundary" checked><span class="map-key key-boundary"></span>Límite comunal · BCN</label>
+                <label><input type="checkbox" id="layer-snaspe" checked><span class="map-key key-snaspe"></span>SNASPE · MMA 2023</label>
+                <label><input type="checkbox" id="layer-sanctuaries" checked><span class="map-key key-sanctuary"></span>Santuarios · MMA 2024</label>
+              </div>
+            </aside>
+            <div class="map-stage">
+              <div id="territory-map" role="region" aria-label="Mapa interactivo de localidades, límite comunal y áreas protegidas de San José de Maipo"></div>
+              <p id="map-load-status" class="map-load-status" role="status">Preparando cartografía…</p>
+              <div class="map-caption">Los números corresponden al listado · Acércate para ver los nombres</div>
             </div>
-            <p class="map-note">Mapa esquemático · No utilizar para navegación</p>
           </div>
-
-          <div class="destination-map" role="img" aria-label="Mapa esquemático de los cuatro valles de San José de Maipo">
-            <svg class="map-relief" viewBox="0 0 760 600" aria-hidden="true">
-              <defs>
-                <pattern id="contours" width="130" height="90" patternUnits="userSpaceOnUse">
-                  <path d="M-10 45Q35 5 78 42t70 2" fill="none" stroke="#fff" stroke-opacity=".09" stroke-width="1.5" />
-                  <path d="M-20 68Q33 30 86 66t70-4" fill="none" stroke="#fff" stroke-opacity=".07" />
-                </pattern>
-              </defs>
-              <rect width="760" height="600" fill="url(#contours)" />
-              <path d="M115 535C170 470 183 423 228 371c49-58 70-106 91-178" fill="none" stroke="#75b7c1" stroke-width="8" stroke-linecap="round" opacity=".9" />
-              <path d="M228 371c94-45 126-107 195-181" fill="none" stroke="#75b7c1" stroke-width="5" stroke-linecap="round" opacity=".75" />
-              <path d="M319 193c-30-39-57-67-87-97" fill="none" stroke="#75b7c1" stroke-width="4" stroke-linecap="round" opacity=".65" />
-              <path d="M319 193c82 1 143-19 222-67" fill="none" stroke="#75b7c1" stroke-width="4" stroke-linecap="round" opacity=".65" />
-              <path d="M228 371c89 34 162 66 239 117" fill="none" stroke="#75b7c1" stroke-width="4" stroke-linecap="round" opacity=".65" />
-              <text x="112" y="568">Acceso desde Santiago</text>
-              <text x="114" y="395">VALLE DEL MAIPO</text>
-              <text x="120" y="88">VALLE DEL COLORADO</text>
-              <text x="485" y="108">VALLE DEL YESO</text>
-              <text x="478" y="510">VALLE DEL VOLCÁN</text>
-            </svg>
-            <div id="map-markers"></div>
-          </div>
+          <div class="map-detail" id="map-detail" aria-live="polite"><strong>Empieza por una localidad.</strong> Elige un punto del mapa o un nombre del listado para ver su fuente y ubicación.</div>
+          <details id="map-sources" class="territory-sources"><summary>Fuentes, fechas y cómo leer este mapa</summary>
+            <p>Límite comunal y topónimos: <a href="https://www.bcn.cl/siit/mapas_vectoriales" target="_blank" rel="noopener">Biblioteca del Congreso Nacional</a>, cartografía referencial con ediciones 2014–2018. Nombres contrastados con el <a href="https://sanjosedemaipo.cl/comuna/datos-comunales/" target="_blank" rel="noopener">listado municipal</a>. La fuente de coordenadas se indica en cada ficha.</p>
+            <p>Áreas protegidas: <a href="https://biodiversidadrm.mma.gob.cl/wp-content/uploads/2024/01/AP_descarga_kmz.zip">MMA · Biodiversidad RM</a>, capas SNASPE 2023 y Santuarios de la Naturaleza 2024. Se muestran los polígonos completos con más de 1 ha de intersección con la comuna; algunos pueden extenderse fuera de ella. Sus figuras de protección corresponden a esas ediciones.</p>
+            <p>Los puntos representan ubicaciones de referencia, no límites de localidades. Los hitos turísticos del listado municipal tienen un símbolo cuadrado. La protección de un área no confirma acceso público ni apertura: consulta las <a href="#condiciones">condiciones de visita</a>.</p>
+            <p>GeoJSON en WGS84 (longitud, latitud); mapa web en Web Mercator. <a href="data/map/manifest.json" target="_blank">Ver procedencia y controles de datos</a> · <a href="data/map/localities.geojson" download>Descargar localidades</a> · <a href="data/map/boundary.geojson" download>Descargar límite</a> · <a href="data/map/protected.geojson" download>Descargar áreas protegidas</a>.</p>
+          </details>
         </div>
       </section>
 
@@ -322,5 +335,8 @@
     </dialog>
 
     <script src="app.js" defer></script>
+    <script src="visitor-guide.js" defer></script>
+    <script src="assets/vendor/maplibre-gl.js" defer></script>
+    <script src="territory-map.js" defer></script>
   </body>
 </html>

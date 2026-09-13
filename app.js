@@ -39,7 +39,6 @@ async function loadData() {
     state.places = await placesResponse.json();
     state.routes = await routesResponse.json();
     renderPlaces();
-    renderMapMarkers();
     renderRoutes();
   } catch (error) {
     document.querySelector("#place-grid").innerHTML = `<p class="empty-state">${error.message}. Recarga la página para intentar nuevamente.</p>`;
@@ -77,19 +76,6 @@ function renderPlaces() {
         </div>
       </div>
     </article>
-  `).join("");
-}
-
-function renderMapMarkers() {
-  document.querySelector("#map-markers").innerHTML = state.places.map((place, index) => `
-    <button
-      class="map-marker ${place.categories[0]}"
-      style="left:${place.map.x}%;top:${place.map.y}%"
-      type="button"
-      data-place="${place.id}"
-      aria-label="Abrir ficha de ${place.name}"
-      title="${place.name}"
-    ><span>${index + 1}</span></button>
   `).join("");
 }
 
