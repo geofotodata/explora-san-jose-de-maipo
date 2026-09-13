@@ -1,7 +1,15 @@
-const CACHE_NAME = "explora-maipo-v3-map";
+const CACHE_NAME = "explora-maipo-v4-guide";
 const APP_SHELL = [
   "./",
   "index.html",
+  "explora.html",
+  "planifica.html",
+  "condiciones.html",
+  "mapa.html",
+  "naturaleza.html",
+  "acerca.html",
+  "guide.css",
+  "guide.js",
   "styles.css",
   "app.js",
   "manifest.webmanifest",
@@ -49,6 +57,6 @@ self.addEventListener("fetch", (event) => {
         return response;
       })
       .catch(async () => (await caches.match(event.request)) ||
-        (event.request.mode === "navigate" ? await caches.match("index.html") : Response.error()))
+        (event.request.mode === "navigate" ? new Response('<!doctype html><html lang="es"><meta charset="utf-8"><title>Sin conexión</title><h1>Esta página no está disponible sin conexión</h1><p>Conéctate para cargar esta ficha. No uses contenido guardado para confirmar condiciones de acceso.</p></html>', {status:503,headers:{'Content-Type':'text/html; charset=utf-8'}}) : Response.error()))
   );
 });

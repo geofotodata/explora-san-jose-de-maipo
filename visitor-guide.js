@@ -21,7 +21,7 @@ function renderConditions(filter = 'all') {
     card.className = 'condition-card';
     const meta = document.createElement('p'); meta.className = 'eyebrow'; meta.textContent = sector.valley;
     const title = document.createElement('h3'); title.textContent = sector.name;
-    const status = document.createElement('span'); status.className = 'condition-status'; status.textContent = '○ Por confirmar';
+    const status = document.createElement('span'); status.className = 'condition-status'; status.textContent = '○ Sin información verificada';
     const description = document.createElement('p'); description.textContent = sector.description;
     const date = document.createElement('small'); date.textContent = 'Última verificación de acceso: pendiente';
     const link = document.createElement('a'); link.href = sector.url; link.target = '_blank'; link.rel = 'noopener'; link.textContent = sector.source + ' ↗';

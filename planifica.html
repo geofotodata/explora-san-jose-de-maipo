@@ -1,0 +1,87 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Planifica tu visita · Explora San José de Maipo</title><meta name="description" content="Localidades, mapa territorial y planificación responsable de visitas a San José de Maipo.">
+<meta name="theme-color" content="#173f35"><link rel="icon" href="assets/icon.svg"><link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="visitor-guide.css"><link rel="stylesheet" href="assets/vendor/maplibre-gl.css"><link rel="stylesheet" href="territory-map.css"><link rel="stylesheet" href="guide.css"></head>
+<body><a class="skip-link" href="#contenido">Saltar al contenido</a><header class="guide-header"><div class="container masthead"><a class="guide-brand" href="index.html">EXPLORA <span>San José de Maipo</span></a><span class="guide-label">GUÍA DEL TERRITORIO</span><button id="guide-menu" aria-controls="guide-nav" aria-expanded="false" type="button">Menú</button></div><nav id="guide-nav" class="container guide-nav" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="explora.html">Explora el Cajón</a><a href="planifica.html" aria-current="page">Planifica tu visita</a><a href="condiciones.html">Estado de accesos</a><a href="mapa.html">Mapa</a><a href="naturaleza.html">Naturaleza y cultura</a><a href="acerca.html">Acerca de la guía</a></nav></header>
+<div class="guide-notice"><div class="container">Antes de viajar: consulta las condiciones de tu destino. <a href="condiciones.html">Revisar accesos →</a></div></div>
+<main id="contenido"><div class="container page-heading"><p class="eyebrow">San José de Maipo</p><h1>Planifica tu visita</h1><p>Elige actividades y revisa lo necesario para viajar. Los recorridos son orientaciones piloto, no rutas operativas verificadas.</p></div><section class="container home-section gateway-grid"><article id="transporte"><h2>Cómo llegar</h2><p>Ubica tu destino antes de organizar el transporte. El punto del catálogo no representa una ruta vehicular ni el acceso autorizado.</p><a href="mapa.html">Ubicar destino →</a></article><article id="servicios"><h2>Servicios turísticos</h2><p>Consulta información local y confirma directamente horarios, reservas y disponibilidad. Esta guía aún no tiene un directorio verificado de prestadores.</p><a href="https://sanjosedemaipo.cl/turismo/" target="_blank" rel="noopener">Turismo municipal ↗</a></article><article id="accesibilidad"><h2>Accesibilidad</h2><p>Consulta con el administrador las condiciones de movilidad, baños y estacionamiento. No contamos con una evaluación de accesibilidad por recinto.</p></article></section><section class="section explore-section" id="explorar" aria-labelledby="explore-title">
+        <div class="container">
+          <div class="section-heading">
+            <p class="eyebrow">Encuentra tu próxima parada</p>
+            <h2 id="explore-title">Lugares para explorar</h2>
+            <p>Una selección inicial para probar la experiencia. La información operativa debe validarse antes de viajar.</p>
+          </div>
+
+          <div class="explore-tools">
+            <div class="filters" role="group" aria-label="Filtrar lugares por categoría">
+              <button class="filter active" type="button" data-filter="todos">Todos</button>
+              <button class="filter" type="button" data-filter="naturaleza">Naturaleza</button>
+              <button class="filter" type="button" data-filter="patrimonio">Patrimonio</button>
+              <button class="filter" type="button" data-filter="aventura">Aventura</button>
+              <button class="filter" type="button" data-filter="bienestar">Bienestar</button>
+            </div>
+            <label class="search-box">
+              <span class="sr-only">Buscar lugares</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 5 5"/></svg>
+              <input id="place-search" type="search" placeholder="Buscar un lugar" />
+            </label>
+          </div>
+
+          <div class="place-grid" id="place-grid" aria-live="polite"></div>
+          <p class="empty-state" id="empty-state" hidden>No encontramos lugares con esos filtros.</p>
+        </div>
+      </section><section class="section routes-section" id="rutas" aria-labelledby="routes-title">
+        <div class="container">
+          <div class="section-heading split-heading">
+            <div><p class="eyebrow">Historias en movimiento</p><h2 id="routes-title">Rutas autoguiadas</h2></div>
+            <p>Recorridos piloto para conectar paisaje, patrimonio y comunidad.</p>
+          </div>
+          <div class="route-list" id="route-list"></div>
+        </div>
+      </section><section class="section planning-section" id="planifica" aria-labelledby="plan-title">
+        <div class="container planning-layout">
+          <div class="planning-copy">
+            <p class="eyebrow eyebrow-light">Una visita a tu medida</p>
+            <h2 id="plan-title">Planifica antes de subir</h2>
+            <p>Cuéntanos cómo será tu visita y recibe una orientación inicial basada en reglas simples.</p>
+            <ul>
+              <li>Revisa el estado de caminos y el pronóstico.</li>
+              <li>Lleva agua, abrigo y protección solar.</li>
+              <li>No dependas de la cobertura telefónica.</li>
+            </ul>
+          </div>
+          <form class="planner" id="planner">
+            <label>¿Cuánto tiempo tienes?
+              <select name="duration"><option value="medio-dia">Medio día</option><option value="dia">Día completo</option><option value="dos-dias">Dos días o más</option></select>
+            </label>
+            <label>¿Con quién viajas?
+              <select name="group"><option value="familia">Familia</option><option value="pareja">Pareja</option><option value="solo">Solo/a</option><option value="grupo">Grupo</option></select>
+            </label>
+            <label>¿Qué te interesa?
+              <select name="interest"><option value="naturaleza">Naturaleza</option><option value="patrimonio">Patrimonio</option><option value="aventura">Aventura</option><option value="bienestar">Bienestar</option></select>
+            </label>
+            <button class="button button-accent" type="submit">Crear recomendación</button>
+            <div class="planner-result" id="planner-result" role="status" hidden></div>
+          </form>
+        </div>
+      </section><section class="section safety-section" id="alertas" aria-labelledby="safety-title">
+        <div class="container safety-layout">
+          <div class="safety-icon" aria-hidden="true">!</div>
+          <div>
+            <p class="eyebrow">Información crítica primero</p>
+            <h2 id="safety-title">Visita la montaña con responsabilidad</h2>
+            <p>
+              Los accesos pueden cambiar por nieve, crecidas, remociones en masa, incendios o trabajos viales.
+              Este prototipo no publica alertas operativas en tiempo real.
+            </p>
+          </div>
+          <div class="safety-actions">
+            <a href="https://www.senapred.cl/" target="_blank" rel="noopener">SENAPRED ↗</a>
+            <a href="https://www.meteochile.gob.cl/" target="_blank" rel="noopener">Meteorología ↗</a>
+            <a href="https://www.conaf.cl/" target="_blank" rel="noopener">CONAF ↗</a>
+          </div>
+        </div>
+      </section><dialog class="place-dialog" id="place-dialog" aria-labelledby="dialog-title">
+      <button class="dialog-close" type="button" aria-label="Cerrar ficha">×</button>
+      <div id="dialog-content"></div>
+    </dialog></main><footer class="guide-footer"><div class="container"><strong>Explora San José de Maipo</strong><p>Guía independiente en desarrollo. No es un canal oficial de emergencias.</p><nav aria-label="Enlaces del pie"><a href="index.html">Inicio</a><a href="explora.html">Explora el Cajón</a><a href="planifica.html" aria-current="page">Planifica tu visita</a><a href="condiciones.html">Estado de accesos</a><a href="mapa.html">Mapa</a><a href="naturaleza.html">Naturaleza y cultura</a><a href="acerca.html">Acerca de la guía</a></nav><p>Los datos territoriales no acreditan apertura ni acceso público. <a href="acerca.html#fuentes">Fuentes y fechas</a></p></div></footer><script src="guide.js" defer></script><script src="app.js" defer></script></body></html>

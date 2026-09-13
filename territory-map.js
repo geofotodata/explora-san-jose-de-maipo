@@ -37,6 +37,11 @@
     sourceLine.append(safeLink(p.source_url, p.source)); content.append(sourceLine);
     if (p.provider === 'bcn') content.append(paragraph('Cartografía BCN referencial; posición aproximada.'));
     content.append(paragraph('Acceso: por confirmar. Esta ubicación no acredita apertura para visitas.'));
+    const slug = normalize(p.name).replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const detailLink = document.createElement('a');
+    detailLink.href = `localidades/${slug}.html`;
+    detailLink.textContent = 'Ver ficha completa →';
+    content.append(detailLink);
     return content;
   }
 
@@ -186,6 +191,9 @@
         }
         ready=true; controls.forEach(id => {byId(id).disabled=false;});
         notice(''); fitBox(points.bbox); updateMarkers();
+        const requested = new URLSearchParams(location.search).get('localidad');
+        const feature = points.features.find(item => item.properties.id === requested);
+        if (feature) selectLocality(feature);
         map.on('move',updateLabels);
         new ResizeObserver(() => {map.resize(); updateLabels();}).observe(byId('territory-map'));
       });

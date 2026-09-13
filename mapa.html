@@ -1,0 +1,41 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mapa del territorio · Explora San José de Maipo</title><meta name="description" content="Localidades, mapa territorial y planificación responsable de visitas a San José de Maipo.">
+<meta name="theme-color" content="#173f35"><link rel="icon" href="assets/icon.svg"><link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="visitor-guide.css"><link rel="stylesheet" href="assets/vendor/maplibre-gl.css"><link rel="stylesheet" href="territory-map.css"><link rel="stylesheet" href="guide.css"></head>
+<body><a class="skip-link" href="#contenido">Saltar al contenido</a><header class="guide-header"><div class="container masthead"><a class="guide-brand" href="index.html">EXPLORA <span>San José de Maipo</span></a><span class="guide-label">GUÍA DEL TERRITORIO</span><button id="guide-menu" aria-controls="guide-nav" aria-expanded="false" type="button">Menú</button></div><nav id="guide-nav" class="container guide-nav" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="explora.html">Explora el Cajón</a><a href="planifica.html">Planifica tu visita</a><a href="condiciones.html">Estado de accesos</a><a href="mapa.html" aria-current="page">Mapa</a><a href="naturaleza.html">Naturaleza y cultura</a><a href="acerca.html">Acerca de la guía</a></nav></header>
+<div class="guide-notice"><div class="container">Antes de viajar: consulta las condiciones de tu destino. <a href="condiciones.html">Revisar accesos →</a></div></div>
+<main id="contenido"><div class="container page-heading"><p class="eyebrow">San José de Maipo</p><h1>Mapa del territorio</h1><p>Explora los lugares del catálogo y las coberturas de referencia. El color de las áreas protegidas no representa su estado de apertura.</p></div><section class="section territory-section" id="mapa" aria-labelledby="map-title">
+        <div class="container">
+          <div class="territory-heading"><div><p class="eyebrow">Atlas del Cajón del Maipo</p><h2 id="map-title">Un territorio, muchas localidades.</h2></div><a href="#map-sources">Fuentes y coberturas ↗</a></div>
+          <p class="territory-intro">Encuentra cada localidad, recorre el límite de San José de Maipo y descubre sus áreas protegidas. Selecciona un nombre para acercarte.</p>
+          <div class="territory-toolbar">
+            <label>Mapa base <select id="map-basemap"><option value="soft">Claro · OpenStreetMap</option><option value="osm">Calles · OpenStreetMap</option><option value="topo">Relieve · OpenTopoMap</option><option value="none">Solo coberturas</option></select></label>
+            <button type="button" id="map-fit-places">Ver localidades</button><button type="button" id="map-fit-boundary">Ver comuna completa</button>
+          </div>
+          <div class="territory-workspace" id="territory-workspace">
+            <aside class="locality-sidebar" aria-label="Buscador y listado de localidades">
+              <label for="locality-search">Busca una localidad</label><input id="locality-search" type="search" placeholder="Ej. El Canelo, Baños Morales…" autocomplete="off">
+              <p id="locality-count" class="locality-count" role="status">Cargando localidades…</p>
+              <div id="locality-list" class="locality-list"></div>
+              <div class="territory-layers"><h3>Coberturas</h3>
+                <label><input type="checkbox" id="layer-localities" checked><span class="map-key key-locality"></span>Localidades y sectores</label>
+                <label><input type="checkbox" id="layer-boundary" checked><span class="map-key key-boundary"></span>Límite comunal · BCN</label>
+                <label><input type="checkbox" id="layer-snaspe" checked><span class="map-key key-snaspe"></span>SNASPE · MMA 2023</label>
+                <label><input type="checkbox" id="layer-sanctuaries" checked><span class="map-key key-sanctuary"></span>Santuarios · MMA 2024</label>
+              </div>
+            </aside>
+            <div class="map-stage">
+              <div id="territory-map" role="region" aria-label="Mapa interactivo de localidades, límite comunal y áreas protegidas de San José de Maipo"></div>
+              <p id="map-load-status" class="map-load-status" role="status">Preparando cartografía…</p>
+              <div class="map-caption">Los números corresponden al listado · Acércate para ver los nombres</div>
+            </div>
+          </div>
+          <div class="map-detail" id="map-detail" aria-live="polite"><strong>Empieza por una localidad.</strong> Elige un punto del mapa o un nombre del listado para ver su fuente y ubicación.</div>
+          <details id="map-sources" class="territory-sources"><summary>Fuentes, fechas y cómo leer este mapa</summary>
+            <p>Límite comunal y topónimos: <a href="https://www.bcn.cl/siit/mapas_vectoriales" target="_blank" rel="noopener">Biblioteca del Congreso Nacional</a>, cartografía referencial con ediciones 2014–2018. Nombres contrastados con el <a href="https://sanjosedemaipo.cl/comuna/datos-comunales/" target="_blank" rel="noopener">listado municipal</a>. La fuente de coordenadas se indica en cada ficha.</p>
+            <p>Áreas protegidas: <a href="https://biodiversidadrm.mma.gob.cl/wp-content/uploads/2024/01/AP_descarga_kmz.zip">MMA · Biodiversidad RM</a>, capas SNASPE 2023 y Santuarios de la Naturaleza 2024. Se muestran los polígonos completos con más de 1 ha de intersección con la comuna; algunos pueden extenderse fuera de ella. Sus figuras de protección corresponden a esas ediciones.</p>
+            <p>Los puntos representan ubicaciones de referencia, no límites de localidades. Los hitos turísticos del listado municipal tienen un símbolo cuadrado. La protección de un área no confirma acceso público ni apertura: consulta las <a href="condiciones.html">condiciones de visita</a>.</p>
+            <p>GeoJSON en WGS84 (longitud, latitud); mapa web en Web Mercator. <a href="data/map/manifest.json" target="_blank">Ver procedencia y controles de datos</a> · <a href="data/map/localities.geojson" download>Descargar localidades</a> · <a href="data/map/boundary.geojson" download>Descargar límite</a> · <a href="data/map/protected.geojson" download>Descargar áreas protegidas</a>.</p>
+          </details>
+        </div>
+      </section></main><footer class="guide-footer"><div class="container"><strong>Explora San José de Maipo</strong><p>Guía independiente en desarrollo. No es un canal oficial de emergencias.</p><nav aria-label="Enlaces del pie"><a href="index.html">Inicio</a><a href="explora.html">Explora el Cajón</a><a href="planifica.html">Planifica tu visita</a><a href="condiciones.html">Estado de accesos</a><a href="mapa.html" aria-current="page">Mapa</a><a href="naturaleza.html">Naturaleza y cultura</a><a href="acerca.html">Acerca de la guía</a></nav><p>Los datos territoriales no acreditan apertura ni acceso público. <a href="acerca.html#fuentes">Fuentes y fechas</a></p></div></footer><script src="guide.js" defer></script><script src="assets/vendor/maplibre-gl.js" defer></script><script src="territory-map.js" defer></script></body></html>

@@ -7,7 +7,9 @@ Prototipo de guía digital para la ZOIT San José de Maipo.
 - Portada adaptable a celulares.
 - Organización por cuatro valles.
 - Fichas piloto de lugares.
-- Mapa territorial esquemático.
+- Mapa MapLibre con localidades, límite BCN y áreas protegidas MMA.
+- Siete páginas principales y 25 fichas estáticas de localidades e hitos.
+- Buscador por nombre, valle y tipo; enlaces bidireccionales ficha–mapa.
 - Rutas autoguiadas iniciales.
 - Planificador basado en reglas.
 - Favoritos locales.
@@ -16,6 +18,35 @@ Prototipo de guía digital para la ZOIT San José de Maipo.
 ## Advertencia
 
 El contenido operativo es piloto. Antes de una publicación institucional deben validarse accesos, horarios, tarifas, condiciones, coordenadas, accesibilidad, derechos de imágenes y fuentes responsables.
+
+## Editar y verificar la estructura
+
+El sitio sigue siendo HTML/CSS/JavaScript estático y compatible con GitHub Pages. No requiere un servidor de aplicación ni servicios de pago.
+
+- `scripts/build_site.py`: plantilla compartida, portada, navegación y fichas.
+- `templates/legacy.html`: componentes preservados de planificación, condiciones y mapa.
+- `guide.css` y `guide.js`: presentación, navegación móvil y filtros.
+- `data/map/localities.geojson`: catálogo geográfico utilizado para generar fichas, sin alterar sus coordenadas.
+- Las páginas HTML generadas se incluyen en Git para publicarlas sin compilación en GitHub Pages. No editarlas directamente: regenerarlas desde sus fuentes.
+
+Con Python 3.11 o posterior, desde la raíz:
+
+```sh
+python scripts/build_site.py
+python -m unittest discover -s scripts -p test_site.py -v
+```
+
+Las pruebas revisan todos los enlaces y anclas locales, una ficha por punto, un título principal por página, IDs únicos y generación reproducible. Para ejecutar también las pruebas geográficas, usa el entorno con `scripts/requirements-geo.txt` si está disponible y ejecuta `python -m unittest discover -s scripts -p 'test_*.py' -v`.
+
+Los enlaces antiguos como `index.html#mapa` se redirigen a su nueva página. Las fichas visitadas pueden quedar en caché; si una ficha no fue guardada, el modo sin conexión indica que no está disponible, en vez de mostrar otra página. Nunca se consideran los datos guardados como confirmación de acceso.
+
+### Fotografía
+
+`assets/embalse-el-yeso.jpg`: [Embalse el Yeso 3](https://commons.wikimedia.org/wiki/File:Embalse_el_Yeso_3.jpg), Chang Hyon Lee, 2016, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Archivo original conservado, encuadre de presentación mediante CSS; la adaptación visual mantiene esa licencia. No representa condiciones actuales.
+
+### Publicación y reversión
+
+Antes de publicar, regenerar y ejecutar las pruebas. Revisar `git diff` y subir los cambios al repositorio autorizado. El rediseño no modifica las coberturas originales ni sus clasificaciones. Para volver a una versión anterior publicada, revertir el commit del rediseño en Git y publicar esa reversión; no borrar los datos ni restablecer el repositorio de forma destructiva.
 
 ## Trabajar desde cualquier equipo
 

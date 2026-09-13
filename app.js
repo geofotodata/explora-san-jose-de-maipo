@@ -3,8 +3,18 @@ const state = {
   routes: [],
   filter: "todos",
   search: "",
-  favorites: new Set(JSON.parse(localStorage.getItem("zoit-favorites") || "[]")),
+  favorites: new Set(readFavorites()),
 };
+
+function readFavorites() {
+  try {
+    const value = JSON.parse(localStorage.getItem("zoit-favorites") || "[]");
+    return Array.isArray(value) ? value : [];
+  } catch (error) {
+    console.warn("No se pudieron recuperar los favoritos locales", error);
+    return [];
+  }
+}
 
 const palette = {
   maipo: "linear-gradient(135deg, #769784, #315d4e)",
@@ -125,7 +135,8 @@ function openPlace(id) {
 function toggleFavorite(id) {
   if (state.favorites.has(id)) state.favorites.delete(id);
   else state.favorites.add(id);
-  localStorage.setItem("zoit-favorites", JSON.stringify([...state.favorites]));
+  try { localStorage.setItem("zoit-favorites", JSON.stringify([...state.favorites])); }
+  catch (error) { console.warn("Los favoritos solo se conservarán durante esta sesión", error); }
   renderPlaces();
 }
 
@@ -156,12 +167,12 @@ dialog.addEventListener("close", () => document.body.classList.remove("dialog-op
 
 const menuButton = document.querySelector(".menu-toggle");
 const nav = document.querySelector("#main-nav");
-menuButton.addEventListener("click", () => {
+menuButton?.addEventListener("click", () => {
   const expanded = menuButton.getAttribute("aria-expanded") === "true";
   menuButton.setAttribute("aria-expanded", String(!expanded));
   nav.classList.toggle("open", !expanded);
 });
-nav.addEventListener("click", () => { nav.classList.remove("open"); menuButton.setAttribute("aria-expanded", "false"); });
+nav?.addEventListener("click", () => { nav.classList.remove("open"); menuButton.setAttribute("aria-expanded", "false"); });
 
 document.querySelector("#planner").addEventListener("submit", (event) => {
   event.preventDefault();
@@ -178,6 +189,7 @@ document.querySelector("#planner").addEventListener("submit", (event) => {
 });
 
 function updateConnectionStatus() {
+  if (!document.querySelector("#connection-text")) return;
   const online = navigator.onLine;
   document.querySelector("#connection-text").textContent = online ? "Con conexión" : "Modo sin conexión";
   document.querySelector("#connection-dot").style.background = online ? "#74bd86" : "#f0b755";
@@ -191,9 +203,9 @@ const installButton = document.querySelector("#install-button");
 window.addEventListener("beforeinstallprompt", (event) => {
   event.preventDefault();
   deferredInstallPrompt = event;
-  installButton.hidden = false;
+  if (installButton) installButton.hidden = false;
 });
-installButton.addEventListener("click", async () => {
+installButton?.addEventListener("click", async () => {
   if (!deferredInstallPrompt) return;
   deferredInstallPrompt.prompt();
   await deferredInstallPrompt.userChoice;
