@@ -31,7 +31,10 @@
 .map-load-status { position:absolute; z-index:5; top:10px; left:10px; right:50px; margin:0; padding:8px 11px; font-size:.75rem; background:#fff8e1; color:#47371b; box-shadow:0 1px 6px #0002; }
 .map-load-status[hidden] { display:none; }
 .map-caption { position:absolute; left:8px; bottom:35px; max-width:calc(100% - 70px); pointer-events:none; background:#fffffff0; color:#334a40; padding:5px 8px; font-size:.65rem; }
-.locality-pin { position:relative; border:2px solid #fff; background:#21596b; border-radius:50%; color:white; width:28px; height:28px; box-shadow:0 1px 5px #0005; cursor:pointer; font:bold 11px Arial; padding:0; }
+/* MapLibre projects from the map origin. Relative positioning adds each pin's
+   normal-flow offset, spreading localities across the screen. Keep its inline
+   transform untouched; absolute pins also anchor their own label children. */
+.locality-pin.maplibregl-marker { position:absolute; top:0; left:0; margin:0; border:2px solid #fff; background:#21596b; border-radius:50%; color:white; width:28px; height:28px; box-shadow:0 1px 5px #0005; cursor:pointer; font:bold 11px Arial; padding:0; }
 .locality-pin[data-kind=hito] { border-radius:3px; background:#986023; }
 .locality-pin[data-capital=true] { background:#b2481b; width:33px; height:33px; }
 .locality-pin[aria-pressed=true] { outline:3px solid #e6bd62; z-index:4; }

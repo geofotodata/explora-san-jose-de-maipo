@@ -1,4 +1,4 @@
-const CACHE_NAME = "explora-maipo-v4-guide";
+const CACHE_NAME = "explora-maipo-v6-marker-position";
 const APP_SHELL = [
   "./",
   "index.html",
@@ -10,6 +10,10 @@ const APP_SHELL = [
   "acerca.html",
   "guide.css",
   "guide.js",
+  "editorial.css",
+  "assets/fonts/alegreya.ttf",
+  "assets/fonts/alegreya-italic.ttf",
+  "assets/fonts/chivo.ttf",
   "styles.css",
   "app.js",
   "manifest.webmanifest",
