@@ -1,6 +1,7 @@
 /* Shared navigation and progressive directory filtering; no live access claims. */
 (() => {
   'use strict';
+  document.documentElement.classList.add('js-menu');
   const menu = document.querySelector('#guide-menu');
   const nav = document.querySelector('#guide-nav');
   menu?.addEventListener('click', () => {
